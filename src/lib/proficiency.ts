@@ -1,34 +1,30 @@
-export enum Proficiency {
-    Untrained = "0",
-    Trained = "level + 2",
-    Expert = "level + 4",
-    Master = "level + 6",
-    Legendary = "level + 8",
-}
+export const PROFICIENCIES = {
+    Untrained: "Untrained",
+    Trained: "Trained",
+    Expert: "Expert",
+    Master: "Master",
+    Legendary: "Legendary",
+} as const;
 
-export const allProficiencies = [
-    "Untrained",
-    "Trained",
-    "Expert",
-    "Master",
-    "Legendary",
-] as const;
+export const ALL_PROFICIENCIES = Object.keys(PROFICIENCIES) as Array<keyof typeof PROFICIENCIES>;
 
-export function proficiencyBonus(level: number, proficiency: Proficiency) {
+export type Proficiency = keyof typeof PROFICIENCIES;
+
+export function proficiencyBonus(level: number, proficiency: Proficiency): number {
     switch (proficiency) {
-        case Proficiency.Untrained:
+        case PROFICIENCIES.Untrained:
             return 0;
 
-        case Proficiency.Trained:
+        case PROFICIENCIES.Trained:
             return level + 2;
 
-        case Proficiency.Expert:
+        case PROFICIENCIES.Expert:
             return level + 4;
 
-        case Proficiency.Master:
+        case PROFICIENCIES.Master:
             return level + 6;
 
-        case Proficiency.Legendary:
+        case PROFICIENCIES.Legendary:
             return level + 8;
     }
 }

@@ -1,7 +1,12 @@
 <script lang="ts">
-	import { allProficiencies, Proficiency, proficiencyBonus } from './proficiency';
+	import {
+		ALL_PROFICIENCIES,
+		PROFICIENCIES,
+		proficiencyBonus,
+		type Proficiency
+	} from './proficiency';
 
-	let proficiency = Proficiency.Untrained;
+	let proficiency: Proficiency = PROFICIENCIES.Untrained;
 	let level = 1;
 
 	export let bonus = 0;
@@ -30,8 +35,8 @@
 		<label for="proficiency">
 			Proficiency: {proficiency}
 			<select id="proficiency" bind:value={proficiency} on:change={() => updateBonus()} required>
-				{#each allProficiencies as p}
-					<option value={Proficiency[p]} selected>{p}: {Proficiency[p]}</option>
+				{#each ALL_PROFICIENCIES as p}
+					<option value={p} selected>{p}</option>
 				{/each}
 			</select>
 		</label>
