@@ -10,7 +10,7 @@ export const ALL_PROFICIENCIES = Object.keys(PROFICIENCIES) as Array<keyof typeo
 
 export type Proficiency = keyof typeof PROFICIENCIES;
 
-export function proficiencyBonus(level: number, proficiency: Proficiency): number {
+export function calculateProficiencyBonus(level: number, proficiency: Proficiency): number {
     switch (proficiency) {
         case PROFICIENCIES.Untrained:
             return 0;

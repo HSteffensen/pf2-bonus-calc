@@ -2,7 +2,7 @@
 	import {
 		ALL_PROFICIENCIES,
 		PROFICIENCIES,
-		proficiencyBonus,
+		calculateProficiencyBonus,
 		type Proficiency
 	} from './proficiency';
 
@@ -11,7 +11,7 @@
 
 	export let bonus = 0;
 	function updateBonus() {
-		bonus = proficiencyBonus(level, proficiency);
+		bonus = calculateProficiencyBonus(level, proficiency);
 	}
 	updateBonus();
 </script>
